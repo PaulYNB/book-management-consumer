@@ -1,0 +1,46 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>图书管理系统</title>  
+    <!-- 引入Vue和Axios -->  
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>  
+</head>  
+<body>  
+    <div id="app">  
+        <h1>图书管理系统</h1>  
+        <input id="inputBookId" type="text" v-model="bookId" placeholder="输入书的ID">
+        <input id="inputBookName" type="text" v-model="bookName" placeholder="输入书名">
+        <input id="inputAuthor" type="text" v-model="author" placeholder="输入作者">
+        <button @click="addBook">添加图书</button>
+        <br>
+        <input id="inputBookIdForGet" type="text" v-model="bookIdForGet" placeholder="输入书的ID">
+        <button @click="getBooks">查找图书</button>
+        <br>
+        <br>
+        <div v-if="isEditing">  
+            <h2>修改书本信息</h2>  
+            <label>ID:</label>  
+            <input v-model="editingBook.id" disabled>  
+            <label>书名:</label>  
+            <input v-model="editingBook.bookName">
+            <label>作者:</label>  
+            <input v-model="editingBook.author">  
+            <button @click="saveEdit">保存</button>  
+            <button @click="cancelEdit">取消</button>  
+        </div> 
+        <span>图书列表：</span> 
+        <ul> 
+            <li v-for="(book, index) in books" :key="index">  
+                {{ book.id }} - {{ book.bookName }} - {{ book.author }}  
+                <button @click="deleteBook(book.id)">删除</button>
+                <button @click="editBook(index)">修改</button> 
+            </li>  
+        </ul>
+    </div>  
+  
+    <script src="./js/book-vue.js"></script>  
+</body>  
+</html>

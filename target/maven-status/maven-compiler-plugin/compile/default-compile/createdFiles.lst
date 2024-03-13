@@ -1,0 +1,4 @@
+com\paul\book\management\consumer\ConsumerBootApplication.class
+com\paul\book\management\consumer\controller\ConsumerBookController.class
+com\paul\book\management\consumer\ConsumerSpringBootServletInitializer.class
+com\paul\book\management\consumer\controller\WelcomeController.class
