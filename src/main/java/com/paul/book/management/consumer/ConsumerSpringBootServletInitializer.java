@@ -8,7 +8,6 @@ public class ConsumerSpringBootServletInitializer extends SpringBootServletIniti
 	
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-    	System.out.println("ConsumerSpringBootServletInitializer.configure()!!!");
         return builder.sources(ConsumerBootApplication.class);
     }	
   
